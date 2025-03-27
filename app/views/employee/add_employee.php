@@ -9,21 +9,22 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
         }
 
         .container {
-            width: 80%;
-            margin: 20px auto;
+            max-width: 600px;
+            margin: 40px auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
 
         .form-group {
@@ -31,15 +32,17 @@
         }
 
         label {
-            display: block;
+            font-size: 14px;
             font-weight: bold;
+            display: block;
             margin-bottom: 5px;
         }
 
         input, select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
@@ -50,15 +53,16 @@
         }
 
         button {
-            display: block;
+            display: inline-block;
             width: 100%;
             padding: 10px;
             background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
+            margin-top: 15px;
         }
 
         button:hover {
@@ -68,6 +72,7 @@
         p.error {
             color: red;
             text-align: center;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -83,27 +88,27 @@
 
         <form action="index.php?controller=employee&action=handleAdd" method="POST">
             <div class="form-group">
-                <label>Mã Nhân Viên:</label>
-                <input type="text" name="ma_nv" required>
+                <label for="ma_nv">Mã Nhân Viên:</label>
+                <input type="text" name="ma_nv" id="ma_nv" required>
             </div>
             <div class="form-group">
-                <label>Tên Nhân Viên:</label>
-                <input type="text" name="ten_nv" required>
+                <label for="ten_nv">Tên Nhân Viên:</label>
+                <input type="text" name="ten_nv" id="ten_nv" required>
             </div>
             <div class="form-group">
-                <label>Giới Tính:</label>
-                <select name="phai" required>
+                <label for="phai">Giới Tính:</label>
+                <select name="phai" id="phai" required>
                     <option value="NAM">Nam</option>
                     <option value="NU">Nữ</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Nơi Sinh:</label>
-                <input type="text" name="noi_sinh" required>
+                <label for="noi_sinh">Nơi Sinh:</label>
+                <input type="text" name="noi_sinh" id="noi_sinh" required>
             </div>
             <div class="form-group">
-                <label>Phòng Ban:</label>
-                <select name="ma_phong" required>
+                <label for="ma_phong">Phòng Ban:</label>
+                <select name="ma_phong" id="ma_phong" required>
                     <?php foreach ($departments as $department): ?>
                         <option value="<?php echo htmlspecialchars($department['Ma_Phong']); ?>">
                             <?php echo htmlspecialchars($department['Ten_Phong']); ?>
@@ -112,8 +117,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Lương:</label>
-                <input type="number" name="luong" required>
+                <label for="luong">Lương:</label>
+                <input type="number" name="luong" id="luong" required>
             </div>
             <button type="submit">Thêm</button>
         </form>
